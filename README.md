@@ -1,2 +1,2 @@
 # AngularJs
-Training in D
+Training in DTCS
