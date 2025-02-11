@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index Page with JQuery</title>
+        <script src="./scripts/controllers/authenticationController.js"></script>
+        <script src="./scripts/dal/credentials.js"></script>
+        <script src="./scripts/app.js"></script>
+</head>
+
+<body>
+
+    <!-- Template -->
+    <h1>TFL Store</h1>
+    <ol id="flowerlist" style="display: none;">
+        <li>Gerbera</li>
+        <li>Rose</li>
+        <li>Lotus</li>
+    </ol>
+    <hr />
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <lable>Email</lable>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <input type="email" id="uEmail" name="uEmail" placeholder="Enter Email"  />
+                        <span style="color: red;display: none;" id="emailerror"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Password</label>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <input type="password" id="uPassword" name="uPassword" placeholder="Enter Password">
+                        <span style="color: red;display: none;" id="passworderror"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" id="submitbtn" onclick="authenticate()" value="Login" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

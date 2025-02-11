@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page with JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./app.js"></script>
+</head>
+
+<!-- loginModule: is a module {ng-app stores module} -->
+<!-- loginController: is a controller {ng-controller stores module} -->
+<body ng-app="loginModule" ng-controller="loginController">
+
+    <!-- Template -->
+    <h1>TFL Store</h1>
+    <ol id="flowerlist" style="display: none;">
+        <li>Gerbera</li>
+        <li>Rose</li>
+        <li>Lotus</li>
+    </ol>
+    <hr />
+    <div>
+        <form ng-submit="valiate()">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <lable for="uEmail">Email</lable>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="email" id="uEmail" name="uEmail" ng-model="user.email" placeholder="Enter Email" />
+                            <span style="color: red;display: none;" id="emailerror"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="uPassword">Password</label>
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <input type="password" id="uPassword" name="uPassword" ng-model="user.password" placeholder="Enter Password">
+                            <span style="color: red;display: none;" id="passworderror"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit" id="submitbtn">
+                                Login
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
