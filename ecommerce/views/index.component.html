@@ -6,9 +6,15 @@
     <title>E-Commerce</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="../modules/app.module.js"></script>
+    <script src="../modules/catlog.module.js"></script>
+    <script src="../controllers/product.controller.js"></script>
 </head>
-<body ng-app="productModule" ng-controller="productController" style="width: 100vw;">
-    <div style="display: flex; flex-wrap: wrap;">
+<body ng-app="myApp" style="width: 100vw;">
+    <div  ng-controller="AppController" style="display: flex; flex-wrap: wrap;">
+       <
+    </div> 
+
+    <div id="productlist" ng-controller="productcontroller" style="display: flex; flex-wrap: wrap;">
         <div ng-repeat="item in productsList"
             style="width: 90%;border: 1px solid #cacaca;padding: 3rem;display: flex;flex-direction: column;width: 11%;margin: 1rem;">
             <div style="display:flex; flex-direction:column;align-items:center; ">
