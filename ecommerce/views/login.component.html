@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="../modules/auth.module.js"></script>
+    <script src="../controllers/login.controller.js"></script>
+</head>
+<body ng-module="authModule" ng-controller="loginController"> 
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <label for="email">Email Address</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <input type="text" id="email" ng-model="user.email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Password</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <input type="password" id="password" ng-model="user.password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="validateBtn">Validate</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -11,16 +11,23 @@
 
 <!-- loginModule: is a module {ng-app stores module} -->
 <!-- loginController: is a controller {ng-controller stores module} -->
-<body ng-app="loginModule" ng-controller="loginController">
+
+<body ng-app="loginModule" ng-controller="loginController" style="width: 100vw;">
 
     <!-- Template -->
-    <h1>TFL Store</h1>
+    <!-- <h1>TFL Store</h1>
     <ol id="flowerlist" style="display: none;">
         <li>Gerbera</li>
         <li>Rose</li>
         <li>Lotus</li>
     </ol>
     <hr />
+    <div id="userlist" style="display: none;">
+        <ol>
+            <li ng-repeat="user in userList">{{user.code}}---{{user.name}}---{{user.email}}</li>
+        </ol>
+    </div>
+    <hr/>
     <div>
         <form ng-submit="valiate()">
             <table>
@@ -56,7 +63,26 @@
                 </tbody>
             </table>
         </form>
+    </div> -->
+
+    <div style="display: flex; flex-wrap: wrap;">
+        <div ng-repeat="item in productsList"
+            style="width: 90%;border: 1px solid #cacaca;padding: 3rem;display: flex;flex-direction: column;width: 11%;margin: 1rem;">
+            <div style="display:flex; flex-direction:column;align-items:center; ">
+                <div>
+                    <img src={{item.url}} style="width: 30vw;max-height: 21rem;"/>
+                </div>
+                <div>
+                    <div><strong>Product Name: </strong>{{item.name}}</div>
+                    <div><strong>Product Price:</strong> {{item.price }}</div>
+                    <div><strong>Product Processor:</strong> {{item.processor}}</div>
+                    <div><strong>Product Brand:</strong> {{item.brand}}</div>
+                </div>
+            </div>
+
+        </div>
     </div>
+
 </body>
 
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="../modules/app.module.js"></script>
+</head>
+<body ng-app="productModule" ng-controller="productController" style="width: 100vw;">
+    <div style="display: flex; flex-wrap: wrap;">
+        <div ng-repeat="item in productsList"
+            style="width: 90%;border: 1px solid #cacaca;padding: 3rem;display: flex;flex-direction: column;width: 11%;margin: 1rem;">
+            <div style="display:flex; flex-direction:column;align-items:center; ">
+                <div>
+                    <img src={{item.url}} style="width: 30vw;max-height: 21rem;"/>
+                </div>
+                <div>
+                    <div><strong>Product Name: </strong>{{item.name}}</div>
+                    <div><strong>Product Price:</strong> {{item.price }}</div>
+                    <div><strong>Product Processor:</strong> {{item.processor}}</div>
+                    <div><strong>Product Brand:</strong> {{item.brand}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
