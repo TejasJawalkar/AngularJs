@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{message}}
+    <table>
+        <tr>
+            <td>
+                <label for="email">Email Address</label>
+            </td>
+            <td>:</td>
+            <td>
+                <input type="text" id="email" ng-model="user.email">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password</label>
+            </td>
+            <td>:</td>
+            <td>
+                <input type="password" id="password" ng-model="user.password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="validateBtn">Validate</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

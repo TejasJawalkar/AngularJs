@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-body {
+            height: 25rem !important;
+            display: grid !important;
+            justify-items: center !important;
+        }
+
+        .card-body img {
+            height: 12rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row text-center" ng-controller="CatalogController as vm">
+        <div ng-repeat="item in vm.products" class="col-sm-3">
+            <div class="card m-2">
+                <div class="card-body p-2">
+                    
+                            <img src={{item.image}} alt={{item.name}} class="product-image">
+                        
+                            <h4>{{item.name}}</h4>
+                            <p class="price">{{item.price}}</p>
+                           
+                    
+                </div>
+                <div class="card-footer">
+                    <button class="buy-button">View More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
