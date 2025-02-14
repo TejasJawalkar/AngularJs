@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Catalog</title>
     <style>
         .card-body {
             height: 20rem;
@@ -24,13 +24,14 @@
     <div class="row text-center" ng-controller="CatalogController as vm">
         <div ng-repeat="item in vm.products" class="col-sm-3">
             <div class="card m-2">
-                <a ng-click="vm.viewProduct(item)">
-                <div class="card-body p-2">
-                    <img src={{item.image}} alt={{item.name}} class="product-image">
-                    <h4>{{item.name}}</h4>
-                    <p class="price">{{item.price}}</p>
-                </div>
-            </a>
+                <!-- Example of a clickable product card -->
+                <a ng-href="#/product/{{item.id}}">
+                    <div class="card-body p-2">
+                        <img ng-src="{{item.image}}" alt="{{item.name}}" class="product-image">
+                        <h4>{{item.name}}</h4>
+                        <p class="price">{{item.price}}</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

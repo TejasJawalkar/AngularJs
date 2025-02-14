@@ -1,2 +1,6 @@
 
-angular.module("authModule", []).controller("AuthController", authController);
+
+
+angular.module("authModule", [])
+    .controller("AuthController", authController)
+    .service("AuthService", AuthService);

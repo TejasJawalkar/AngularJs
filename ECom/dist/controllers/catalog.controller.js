@@ -1,4 +1,4 @@
-var catalogController = /** @class */ (function () {
+var catalogController = (function () {
     function catalogController($scope, catalogServices) {
         this.$scope = $scope;
         this.catalogServices = catalogServices;
@@ -8,10 +8,11 @@ var catalogController = /** @class */ (function () {
     }
     catalogController.prototype.getProductList = function () {
         var _this = this;
-        this.catalogServices.getCatalogData()
-            .then(function (res) {
+        this.catalogServices.getCatalogData().then(function (res) {
+            console.log(res);
             _this.products = res.data;
         }).catch(function (ex) {
+            console.log(ex.message);
         });
     };
     catalogController.prototype.viewProduct = function (product) {

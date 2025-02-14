@@ -4,7 +4,7 @@
   "description": "ECommerce Site with angularJs (Tutorial)",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && node remove-imports-exports.js"
   },
   "author": "",
   "license": "ISC",

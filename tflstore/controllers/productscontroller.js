@@ -1,5 +1,4 @@
 // controllers/products.controller.js
-
 class ProductsController {
   getAllProducts(req, res) {
    const products = [

@@ -1,6 +1,7 @@
 import * as angular from "angular"
 import { authController } from "../controllers/auth.controller";
 import { catalogController } from "../controllers/catalog.controller";
+import { MainController } from "../controllers/main.controller";
 
 //
 
@@ -20,6 +21,8 @@ appModule.config(['$routeProvider', ($routeProvider:any) => {
     })
     
 }]);
+
+
 
 // appModule.controller("AuthController",authController)
 // appModule.controller("CatalogController",catalogController)

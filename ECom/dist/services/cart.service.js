@@ -1,4 +1,4 @@
-var CartService = /** @class */ (function () {
+var CartService = (function () {
     function CartService(catlogService) {
         this.catlogService = catlogService;
         this.products = [];

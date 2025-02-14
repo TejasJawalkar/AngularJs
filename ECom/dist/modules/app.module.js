@@ -14,5 +14,3 @@ appModule.config(['$routeProvider', function ($routeProvider) {
             redirectTo: "product"
         });
     }]);
-// appModule.controller("AuthController",authController)
-// appModule.controller("CatalogController",catalogController)

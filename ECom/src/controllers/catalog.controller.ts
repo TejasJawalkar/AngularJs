@@ -17,12 +17,12 @@ export class catalogController
     }
 
      getProductList(){
-        this.catalogServices.getCatalogData()
-        .then((res)=>{
+        this.catalogServices.getCatalogData().then((res)=>{
+            console.log(res);
             this.products=res.data;
         }).catch((ex)=>{
-
-        }) 
+            console.log(ex.message)
+        });
     }
 
     viewProduct(product:any)

@@ -13,15 +13,13 @@ export interface IProduct{
 
 export class CatalogServices {
     
-
     static $inject=["$http"];
     service:string="http://localhost:8000/"
 
     constructor(private $http:angular.IHttpService) {
-
     }
 
     getCatalogData() {
-        return this.$http.get<IProduct[]>(this.service+"/products");
+        return this.$http.get<IProduct[]>(this.service+"products");
     }
 }

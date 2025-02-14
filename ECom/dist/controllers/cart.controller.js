@@ -1,4 +1,4 @@
-var cartController = /** @class */ (function () {
+var cartController = (function () {
     function cartController($scope, cartService) {
         this.$scope = $scope;
         this.cartService = cartService;
