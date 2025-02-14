@@ -7,7 +7,14 @@ var catalogController = /** @class */ (function () {
         $scope["vm"] = this;
     }
     catalogController.prototype.getProductList = function () {
-        this.products = this.catalogServices.getCatalogData();
+        var _this = this;
+        this.catalogServices.getCatalogData()
+            .then(function (res) {
+            _this.products = res.data;
+        }).catch(function (ex) {
+        });
+    };
+    catalogController.prototype.viewProduct = function (product) {
     };
     catalogController.$inject = ["$scope", "CatalogServices"];
     return catalogController;

@@ -4,7 +4,7 @@ import { catalogController } from "../controllers/catalog.controller";
 
 //
 
-const appModule=angular.module("MyEcomApplication",['ngRoute','catalogModule','authModule']);
+const appModule=angular.module("MyEcomApplication",['ngRoute','catalogModule','authModule','CartModule']);
 appModule.config(['$routeProvider', ($routeProvider:any) => {
     $routeProvider
     .when("/product",{

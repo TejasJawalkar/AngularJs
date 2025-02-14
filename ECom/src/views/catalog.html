@@ -7,13 +7,15 @@
     <title>Document</title>
     <style>
         .card-body {
-            height: 25rem !important;
+            height: 20rem;
             display: grid !important;
             justify-items: center !important;
+            padding: 2rem;
         }
 
         .card-body img {
             height: 12rem;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -22,18 +24,13 @@
     <div class="row text-center" ng-controller="CatalogController as vm">
         <div ng-repeat="item in vm.products" class="col-sm-3">
             <div class="card m-2">
+                <a ng-click="vm.viewProduct(item)">
                 <div class="card-body p-2">
-                    
-                            <img src={{item.image}} alt={{item.name}} class="product-image">
-                        
-                            <h4>{{item.name}}</h4>
-                            <p class="price">{{item.price}}</p>
-                           
-                    
+                    <img src={{item.image}} alt={{item.name}} class="product-image">
+                    <h4>{{item.name}}</h4>
+                    <p class="price">{{item.price}}</p>
                 </div>
-                <div class="card-footer">
-                    <button class="buy-button">View More</button>
-                </div>
+            </a>
             </div>
         </div>
     </div>

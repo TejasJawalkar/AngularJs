@@ -1,5 +1,5 @@
 import { IScope } from "angular";
-import { CatalogServices } from "../services/catalog.service";
+import { CatalogServices,IProduct } from "../services/catalog.service";
 
 interface ICustomScope extends IScope{
     vm:catalogController
@@ -9,14 +9,24 @@ export class catalogController
 {
     static $inject=["$scope","CatalogServices"];
     productMessage:string;
-    products:any[]=[];
+    products:IProduct[]=[];
    
     constructor(private $scope: ICustomScope,private catalogServices:CatalogServices) {
         this.getProductList()
         $scope["vm"]=this;
     }
 
-    getProductList(){
-        this.products=this.catalogServices.getCatalogData();
+     getProductList(){
+        this.catalogServices.getCatalogData()
+        .then((res)=>{
+            this.products=res.data;
+        }).catch((ex)=>{
+
+        }) 
+    }
+
+    viewProduct(product:any)
+    {
+
     }
 }
