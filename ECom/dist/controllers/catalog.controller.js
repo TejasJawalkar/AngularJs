@@ -8,14 +8,18 @@ var catalogController = (function () {
     }
     catalogController.prototype.getProductList = function () {
         var _this = this;
-        this.catalogServices.getCatalogData().then(function (res) {
-            console.log(res);
-            _this.products = res.data;
-        }).catch(function (ex) {
-            console.log(ex.message);
-        });
-    };
-    catalogController.prototype.viewProduct = function (product) {
+        this.products = this.catalogServices.getproductlocalstorage();
+        if (this.products.length === 0) {
+            this.catalogServices.getCatalogData()
+                .then(function (products) {
+                _this.products = products;
+                _this.catalogServices.addproductinlocalstoare(_this.products);
+            })
+                .catch(function (error) {
+                console.error('Error fetching product data:', error);
+                _this.productMessage = 'Failed to load products. Please try again later.';
+            });
+        }
     };
     catalogController.$inject = ["$scope", "CatalogServices"];
     return catalogController;

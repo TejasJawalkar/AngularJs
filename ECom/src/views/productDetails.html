@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Details</title>
+    <style>
+        .card{
+            height: 30rem;
+        }
+        .card-body
+        {
+            position:relative;
+            top: 4rem;
+        }
+
+        .card-body img{
+            position: relative;
+            top: -2rem;
+            height: 20rem;
+        }
+
+        .card-body img:hover{
+            height: 22rem;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="row text-center" ng-controller="ProductDetailsController as pdm">
+            <div class="card mt-5" ng-if="pdm.filterredProduct">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src={{pdm.filterredProduct.image}}>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-start">
+                                <h4>{{pdm.filterredProduct.name}}</h4>
+                                <p class="mt-3"><strong>Description: </strong>{{pdm.filterredProduct.description}}</p>
+                                <p class="mt-3"><strong>Category:</strong> {{pdm.filterredProduct.category}}</p>
+                                <p class="mt-3"><strong>Price:</strong> {{pdm.filterredProduct.price | currency:"INR " }}</p>
+                                <p class="mt-3"><strong>Rating:</strong> {{pdm.filterredProduct.rating}}</p>
+                                <p class="mt-3"><strong>Availability: </strong>{{pdm.filterredProduct.availability}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-end">
+                        <button class="btn btn-primary" ng-click="pdm.AddToCart(pdm.filterredProduct)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -1,8 +1,8 @@
 
-var appModule = angular.module("MyEcomApplication", ['ngRoute', 'catalogModule', 'authModule', 'CartModule']);
+var appModule = angular.module("MyEcomApplication", ['ngRoute', 'catalogModule', 'authModule', 'CartModule', 'ProductDetailsModule']);
 appModule.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
-            .when("/product", {
+            .when("/products", {
             templateUrl: "src/views/catalog.html",
             controller: "CatalogController"
         })
@@ -10,7 +10,11 @@ appModule.config(['$routeProvider', function ($routeProvider) {
             templateUrl: "src/views/auth.html",
             controller: "AuthController"
         })
+            .when("/product/:id", {
+            templateUrl: "src/views/productDetails.html",
+            controller: "ProductDetailsController"
+        })
             .otherwise({
-            redirectTo: "product"
+            redirectTo: "products"
         });
     }]);

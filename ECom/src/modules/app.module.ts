@@ -1,14 +1,14 @@
 import * as angular from "angular"
-import { authController } from "../controllers/auth.controller";
-import { catalogController } from "../controllers/catalog.controller";
-import { MainController } from "../controllers/main.controller";
 
-//
-
-const appModule=angular.module("MyEcomApplication",['ngRoute','catalogModule','authModule','CartModule']);
-appModule.config(['$routeProvider', ($routeProvider:any) => {
+const appModule=angular.module
+(
+    "MyEcomApplication",
+    ['ngRoute','catalogModule','authModule','CartModule','ProductDetailsModule']
+);
+appModule.config(['$routeProvider', ($routeProvider:any) => 
+    {
     $routeProvider
-    .when("/product",{
+    .when("/products",{
         templateUrl:"src/views/catalog.html",
         controller:"CatalogController"
     })
@@ -16,13 +16,14 @@ appModule.config(['$routeProvider', ($routeProvider:any) => {
         templateUrl:"src/views/auth.html",
         controller:"AuthController"
     })
-    .otherwise({
-        redirectTo:"product"
+    .when("/product/:id",{
+        templateUrl:"src/views/productDetails.html",
+        controller:"ProductDetailsController"
     })
-    
+    .otherwise({
+        redirectTo:"products"
+    })
 }]);
-
-
 
 // appModule.controller("AuthController",authController)
 // appModule.controller("CatalogController",catalogController)

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog</title>
+    <title>Products</title>
     <style>
         .card-body {
             height: 20rem;
@@ -17,6 +17,15 @@
             height: 12rem;
             margin-top: 1rem;
         }
+
+        .card a{
+            text-decoration: none !important
+        }
+
+        .magnify:hover{
+            height: 10rem;
+        }
+
     </style>
 </head>
 
@@ -25,11 +34,11 @@
         <div ng-repeat="item in vm.products" class="col-sm-3">
             <div class="card m-2">
                 <!-- Example of a clickable product card -->
-                <a ng-href="#/product/{{item.id}}">
+                <a ng-href="#!/product/{{item.id}}">
                     <div class="card-body p-2">
-                        <img ng-src="{{item.image}}" alt="{{item.name}}" class="product-image">
-                        <h4>{{item.name}}</h4>
-                        <p class="price">{{item.price}}</p>
+                        <img ng-src="{{item.image}}" alt="{{item.name}}" class="product-image magnify">
+                        <h5 class="text-primary">{{item.name}}</h5>
+                        <p  class="text-primary">Price: {{item.price | currency:'INR '}}</p>
                     </div>
                 </a>
             </div>

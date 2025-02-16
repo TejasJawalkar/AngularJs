@@ -2,3 +2,4 @@ tsecommerce/node_modules/
 ECom/node_modules/
 spa/node_modules/
 tflstore/node_modules/
+**/dist/
