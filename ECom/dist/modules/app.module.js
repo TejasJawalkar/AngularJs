@@ -1,5 +1,11 @@
 
-var appModule = angular.module("MyEcomApplication", ['ngRoute', 'catalogModule', 'authModule', 'CartModule', 'ProductDetailsModule']);
+var appModule = angular.module("MyEcomApplication", [
+    'ngRoute',
+    'catalogModule',
+    'authModule',
+    'CartModule',
+    'ProductDetailsModule',
+]);
 appModule.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when("/products", {

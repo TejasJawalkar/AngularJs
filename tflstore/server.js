@@ -39,10 +39,11 @@ app.use(function(req, res,next){
 // Simple route to simulate authentication
 app.post('/login', (req, res) => {
    const { email, password } = req.body;
-   if (email === 'ravi.tambade@transflower.in' && password === 'seed') {
-       res.json({ success: true });
+   console.log(req.body)
+   if (email === 'admin@tsystem.in' && password === 'tsystem') {
+       res.json({ success: true, status:200 });
    } else {
-       res.json({ success: false });
+       res.json({ success: false,status:401});
    }
 });
 

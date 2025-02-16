@@ -3,7 +3,13 @@ import * as angular from "angular"
 const appModule=angular.module
 (
     "MyEcomApplication",
-    ['ngRoute','catalogModule','authModule','CartModule','ProductDetailsModule']
+    [
+        'ngRoute',
+        'catalogModule',
+        'authModule',
+        'CartModule',
+        'ProductDetailsModule',
+    ]
 );
 appModule.config(['$routeProvider', ($routeProvider:any) => 
     {

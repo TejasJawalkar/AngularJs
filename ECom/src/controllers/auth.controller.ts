@@ -1,33 +1,47 @@
 import { IScope } from "angular"
-import { AuthService } from "../services/auth.service";
+import { AuthServices } from "../services/auth.service";
+import {IUser} from "../interfaces/IUser"
 
 interface ICustomScope extends IScope {
     lg: authController
 }
 
-interface Iuser {
-    userName: string,
-    password: string
-}
-
 export class authController {
-    user: Iuser;
-    message: string = "Login";
-    status:boolean=false;
+    user: IUser;
+    message: String = "Login";
+    status:Boolean=false;
+
+    loginbtnstyle={
+        "backgroundColor": "#4CAF50",
+        "color": "white",
+        "padding": "10px 20px", 
+        "fontSize": "16px",
+        "border": "none",
+        'borderRadius': "5px",
+        "cursor": "pointer"
+    }
 
     //To convert the typescript into javascript we use the $scope
-    static $Inject = ["AuthService"];
+    static $Inject = ["$scope","AuthService"];
 
-    constructor(private $scope: ICustomScope,private authService:AuthService) {
+    constructor(private $scope: ICustomScope,private AuthServices:AuthServices) {
+        
+        
         $scope["lg"] = this;
     }
 
-    onValidate(user)
+    onValidate(user:IUser)
     {
-        this.authService.validate(user).then((res)=>{
-            this.status= res.data as boolean;
-        }).catch((e)=>{
-            console.log(e.message);
-        });
+        this.AuthServices.validate(user).then((isValid:Boolean)=>{
+            this.status=isValid;
+            console.log(isValid);
+            if(this.status)
+            {
+                debugger;
+                this.AuthServices.setsessionforauth(user);
+            }
+        }).catch((ex)=>{
+            this.status=false;
+        })
     }
 }

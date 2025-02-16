@@ -38,6 +38,9 @@ export class ProductDetailsController
         }
         return undefined;  // If no product is found, return undefined
     }
-    
 
+    AddToCart(Item:IProduct)
+    {
+        
+    }
 }

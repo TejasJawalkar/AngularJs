@@ -3,4 +3,4 @@
 
 angular.module("authModule", [])
     .controller("AuthController", authController)
-    .service("AuthService", AuthService);
+    .service("AuthServices", AuthServices);

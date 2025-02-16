@@ -1,4 +1,6 @@
 
 
+
 angular.module("catalogModule", [])
-    .controller("CatalogController", catalogController);
+    .controller("CatalogController", catalogController)
+    .service("CatalogService", CatalogServices);
