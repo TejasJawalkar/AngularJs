@@ -33,6 +33,7 @@
             <div class="card mt-5" ng-if="pdm.filterredProduct">
                 <div class="card-body">
                     <div class="row">
+                        
                         <div class="col-sm-6">
                             <img src={{pdm.filterredProduct.image}}>
                         </div>
@@ -43,6 +44,7 @@
                                 <p class="mt-3"><strong>Category:</strong> {{pdm.filterredProduct.category}}</p>
                                 <p class="mt-3"><strong>Price:</strong> {{pdm.filterredProduct.price | currency:"INR " }}</p>
                                 <p class="mt-3"><strong>Rating:</strong> {{pdm.filterredProduct.rating}}</p>
+                                <p class="mt-3"><strong>Quantity:</strong> {{pdm.filterredProduct.Quantity}}</p>
                                 <p class="mt-3"><strong>Availability: </strong>
                                     <font ng-class="{
                                     'text-success':pdm.filterredProduct.availability==='In Stock',
@@ -52,17 +54,19 @@
                                     </font>
                                 </p>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer" style="z-index: 1000;">
                     <div class="text-end">
                         <button class="btn"
+                        
                         ng-class="{
-                            'btn-primary':pdm.filterredProduct.availability==='In Stock',
-                            'btn-danger':pdm.filterredProduct.availability!=='In Stock'
+                            'btn-outline-primary':pdm.filterredProduct.availability==='In Stock',
+                            'btn-outline-danger':pdm.filterredProduct.availability!=='In Stock'
                         }"
-                        ng-disabled="pdm.filterredProduct.availability!=='In Stock'"
+                      
                         ng-click="pdm.AddToCart(pdm.filterredProduct)">Add to Cart</button>
                     </div>
                 </div>

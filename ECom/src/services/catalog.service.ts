@@ -1,26 +1,16 @@
 import * as angular from "angular";
-
-export interface IProduct{
-    id: number,
-    name:string,
-    category: string,
-    price: number,
-    description: string,
-    image: string,
-    rating:number,
-    availability: string
-}
+import {IProduct} from "../interfaces/IProduct"
 
 export class CatalogServices {
     
-    static $inject=["$http","$window"];
+    static $inject=["$http"];
     service:string="http://localhost:8000/"
 
-    constructor(private $http:angular.IHttpService,private $window:angular.IWindowService) {
+    constructor(private $http:angular.IHttpService) {
     }
 
     getCatalogData() {
-        // This will specifies the api response
+        // This will specifies the api response......Response is in specified format  
          return this.$http.get<{ data: IProduct[], message: string, status: number }>(this.service+'products')  // Or your actual API URL
         .then((response: angular.IHttpResponse<{ data: IProduct[], message: string, status: number }>) => {
             return response.data.data;  // Extracts only the product data
@@ -29,12 +19,12 @@ export class CatalogServices {
 
     addproductinlocalstoare(product:IProduct[]):void
     {
-        this.$window.sessionStorage.setItem("ProductList",JSON.stringify([product]));
+        sessionStorage.setItem("ProductList",JSON.stringify(product));
     }
 
     getproductlocalstorage(): IProduct[] {
         // Get the products list stored in localStorage
-        const productsList = this.$window.sessionStorage.getItem("ProductList");
+        const productsList = sessionStorage.getItem("ProductList");
     
         if (productsList) {
             // Parse the stored JSON string into an array
@@ -52,6 +42,15 @@ export class CatalogServices {
     
         // Return an empty array if no products are found in localStorage
         return [];
+    }
+
+    getProductById(id:number){
+        return this.$http.get<{ data: IProduct[], message: string, status: number }>(this.service+'products/'+id)  // Or your actual API URL
+        .then((response: angular.IHttpResponse<{ data: IProduct[], message: string, status: number }>) => {
+            const resdata=response.data.data;
+          
+            return resdata;  // Extracts only the product data
+        });
     }
     
 }

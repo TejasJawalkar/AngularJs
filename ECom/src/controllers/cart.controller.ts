@@ -1,5 +1,6 @@
 import { IScope } from "angular";
 import { CartService } from "../services/cart.service";
+import { ICartData } from "../interfaces/ICartData";
 
 interface ICustomScope extends IScope{
     crt:cartController
@@ -8,11 +9,28 @@ interface ICustomScope extends IScope{
 
 export class cartController{
     static $inject=["$scope","CartService"];
-    constructor(private $scope:ICustomScope,private cartService:CartService) {
+    data:string="Cart Data"
+    TotalAmount:number=0;
+    cartData:ICartData[]=[];
+    constructor(private $scope:ICustomScope,private CartService:CartService) {
+        this.getCartData();
         $scope["crt"]=this;
     }
 
-    addtocart(id:number){
 
+    getCartData()
+    {
+        this.cartData= this.CartService.getCartData();
+        this.cartData.forEach(element => {
+            this.TotalAmount+=element.TotalPrice;
+        });
     }
+
+
+    RemoveItemFromCart(item:ICartData)
+    {
+        
+        this.getCartData();
+    }
+
 }

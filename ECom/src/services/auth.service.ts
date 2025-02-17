@@ -2,15 +2,17 @@ import * as angular from "angular";
 import { IUser } from "../interfaces/IUser";
 
 export class AuthServices {
-    static $inject = ["$http"];
+    static $inject = ["$http","$location"];
     service: string = "http://localhost:8000/";
+    aStatus:boolean=false;
 
-    constructor(private $http: angular.IHttpService, private $window: angular.IWindowService) {}
+    constructor(private $http: angular.IHttpService) {
+        
+    }
 
     validate(User: IUser): Promise<boolean> {
         return this.$http.post<{ success: boolean, status: number }>(this.service + "login", User)
             .then((res: angular.IHttpResponse<{ success: boolean, status: number }>) => {
-                console.log(res);
                 return res.data.success;
             }).catch((ex) => {
                 return false;
@@ -18,20 +20,24 @@ export class AuthServices {
     }
 
     setsessionforauth(user: IUser): void {
-        debugger;
-        const userData=JSON.stringify(user)
         // Save the user object directly instead of in an array
-        this.$window.localStorage.setItem("AuthUser",userData );
+        sessionStorage.setItem("AuthUser",JSON.stringify(user));
     }
 
-    checkisLogged(): boolean {
+    checkisLogged()  {
         // Check if 'AuthUser' exists in sessionStorage
-        return this.$window.localStorage.getItem("AuthUser") !== null;
+        if(sessionStorage.getItem("AuthUser"))
+        {
+             this.aStatus=true;
+        }
+        else{
+            this.aStatus=false;
+        }
+        return this.aStatus;
     }
 
     getsessionforauth(): IUser | null {
-        const userData = this.$window.localStorage.getItem("AuthUser");
-
+        const userData = sessionStorage.getItem("AuthUser");
         if (userData) {
             // Parse and return the user object
             const parsedData: IUser = JSON.parse(userData);
@@ -40,5 +46,10 @@ export class AuthServices {
 
         // Return null if no user data is found
         return null;
+    }
+
+    removeSessions()
+    {
+        sessionStorage.clear();
     }
 }

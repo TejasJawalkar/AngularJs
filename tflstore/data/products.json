@@ -7,6 +7,7 @@
       "description": "Over-ear Bluetooth headphones with noise cancellation and up to 20 hours of battery life.",
       "image": "https://m.media-amazon.com/images/I/61rXrXbLgoL._SL1500_.jpg",
       "rating": 4.5,
+      "Quantity":5,
       "availability": "In Stock"
     },
     {
@@ -17,6 +18,7 @@
       "description": "Latest model with 128GB storage, A14 Bionic chip, and triple camera system.",
       "image": "https://m.media-amazon.com/images/I/711G25h1U1L._SX679_.jpg",
       "rating": 4.7,
+      "Quantity":0,
       "availability": "Out of Stock"
     },
     {
@@ -27,6 +29,7 @@
       "description": "Leak-proof, double-walled water bottle, perfect for keeping drinks hot or cold for hours.",
       "image": "https://m.media-amazon.com/images/I/41GC5Z0FrhL._AC_UL320_.jpg",
       "rating": 4.2,
+      "Quantity":25,
       "availability": "In Stock"
     },
     {
@@ -37,6 +40,7 @@
       "description": "Genuine leather wallet with multiple compartments for cards and cash.",
       "image": "https://m.media-amazon.com/images/I/719GhwWK4xL._AC_UL320_.jpg",
       "rating": 4.0,
+      "Quantity":10,
       "availability": "In Stock"
     },
     {
@@ -46,8 +50,8 @@
       "price": 1299,
       "image": "https://m.media-amazon.com/images/I/71lZvVXdYcL._AC_UY218_.jpg",
       "description": "High-performance gaming laptop with RGB keyboard.",
-      "quantityAvl": 10,
       "rating": 4.5,
+      "Quantity": 10,
       "availability": "In Stock"
     },
     {
@@ -57,8 +61,8 @@
       "price": 999,
       "image": "https://m.media-amazon.com/images/I/71lZvVXdYcL._AC_UY218_.jpg",
       "description": "Sleek and lightweight ultrabook for professionals.",
-      "quantityAvl": 15,
       "rating": 4.5,
+      "Quantity": 15,
       "availability": "In Stock"
     },
     {
@@ -68,8 +72,8 @@
       "price": 1099,
       "image": "https://m.media-amazon.com/images/I/71lZvVXdYcL._AC_UY218_.jpg",
       "description": "Reliable business laptop with long battery life.",
-      "quantityAvl": 8,
       "rating": 4.5,
+      "Quantity": 8,
       "availability": "In Stock"
     },
     {
@@ -79,8 +83,8 @@
       "price": 899,
       "image": "https://m.media-amazon.com/images/I/71lZvVXdYcL._AC_UY218_.jpg",
       "description": "Versatile 2-in-1 laptop with a touchscreen display.",
-      "quantityAvl": 12,
       "rating": 4.5,
+      "Quantity": 12,
       "availability": "In Stock"
     },
     {
@@ -90,8 +94,8 @@
       "price": 1999,
       "image": "https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg",
       "description": "Powerful MacBook Pro with M-series chip.",
-      "quantityAvl": 5,
       "rating": 4.5,
+      "Quantity": 5,
       "availability": "In Stock"
     },
     {
@@ -101,8 +105,8 @@
       "price": 499,
       "image": "https://cdn.pixabay.com/photo/2015/06/24/15/45/macbook-820274_1280.jpg",
       "description": "Affordable and fast Chromebook for students.",
-      "quantityAvl": 20,
       "rating": 4.5,
+      "Quantity": 20,
       "availability": "In Stock"
     },
     {
@@ -112,8 +116,8 @@
       "price": 2499,
       "image": "https://cdn.pixabay.com/photo/2015/06/24/15/45/macbook-820274_1280.jpg",
       "description": "High-end workstation laptop for professionals.",
-      "quantityAvl": 6,
       "rating": 4.5,
+      "Quantity": 6,
       "availability": "In Stock"
     },
     {
@@ -123,8 +127,8 @@
       "price": 599,
       "image": "https://cdn.pixabay.com/photo/2015/06/24/15/45/macbook-820274_1280.jpg",
       "description": "Affordable laptop with decent performance.",
-      "quantityAvl": 18,
       "rating": 4.5,
+      "Quantity": 18,
       "availability": "In Stock"
     },
     {
@@ -134,8 +138,8 @@
       "price": 750,
       "image": "https://cdn.pixabay.com/photo/2015/06/24/15/45/macbook-820274_1280.jpg",
       "description": "Perfect laptop for students and daily use.",
-      "quantityAvl": 25,
       "rating": 4.5,
+      "Quantity": 25,
       "availability": "In Stock"
     },
     {
@@ -146,6 +150,7 @@
       "description": "Over-ear Bluetooth headphones with noise cancellation and up to 20 hours of battery life.",
       "image": "https://m.media-amazon.com/images/I/61rXrXbLgoL._SL1500_.jpg",
       "rating": 4.5,
+      "Quantity":50,
       "availability": "In Stock"
     },
     {
@@ -156,6 +161,7 @@
       "description": "Latest model with 128GB storage, A14 Bionic chip, and triple camera system.",
       "image": "https://m.media-amazon.com/images/I/711G25h1U1L._SX679_.jpg",
       "rating": 4.7,
+      "Quantity":0,
       "availability": "Out of Stock"
     },
     {
@@ -166,6 +172,7 @@
       "description": "Leak-proof, double-walled water bottle, perfect for keeping drinks hot or cold for hours.",
       "image": "https://m.media-amazon.com/images/I/41GC5Z0FrhL._AC_UL320_.jpg",
       "rating": 4.2,
+      "Quantity":5,
       "availability": "In Stock"
     }
   ]

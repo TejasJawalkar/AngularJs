@@ -1,4 +1,4 @@
-import { IScope } from "angular"
+import { ILocationProvider, ILocationService, IScope } from "angular"
 import { AuthServices } from "../services/auth.service";
 import {IUser} from "../interfaces/IUser"
 
@@ -11,6 +11,11 @@ export class authController {
     message: String = "Login";
     status:Boolean=false;
 
+    formAlign={
+        "width": "25%",
+        "position":" relative"
+    }
+
     loginbtnstyle={
         "backgroundColor": "#4CAF50",
         "color": "white",
@@ -22,11 +27,18 @@ export class authController {
     }
 
     //To convert the typescript into javascript we use the $scope
-    static $Inject = ["$scope","AuthService"];
+    static $Inject = ["$scope","$location","AuthService"];
 
-    constructor(private $scope: ICustomScope,private AuthServices:AuthServices) {
-        
-        
+    constructor(private $scope: ICustomScope,private $location:ILocationService,private AuthServices:AuthServices) 
+    {
+        this.status=this.checkLogin()
+        if(this.status)
+        {
+            $location.url("/products")
+        }
+        else{
+            $location.url("/login")
+        }
         $scope["lg"] = this;
     }
 
@@ -34,14 +46,18 @@ export class authController {
     {
         this.AuthServices.validate(user).then((isValid:Boolean)=>{
             this.status=isValid;
-            console.log(isValid);
             if(this.status)
             {
-                debugger;
                 this.AuthServices.setsessionforauth(user);
+                this.$location.url("/products")          
             }
         }).catch((ex)=>{
             this.status=false;
         })
+    }
+
+    checkLogin()
+    {
+        return this.AuthServices.checkisLogged()
     }
 }
