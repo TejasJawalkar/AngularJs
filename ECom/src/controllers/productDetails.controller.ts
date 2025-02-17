@@ -15,9 +15,12 @@ export class ProductDetailsController {
 
 
     id: number = 0;
-    static $inject = ["$scope", "$routeParams", "CatalogServices","CartService"]
+    static $inject = ["$scope", "$routeParams", "CatalogServices","CartService","$location"];
 
-    constructor(private $scope: ICustomScope, private $routeParams: any, private catalogServices: CatalogServices,private cartService:CartService) {
+    constructor(
+        private $scope: ICustomScope, 
+        private $routeParams: any, 
+        private catalogServices: CatalogServices,private cartService:CartService) {
         this.id = $routeParams.id;
         this.viewProduct(this.id);
         $scope["pdm"] = this
@@ -61,5 +64,13 @@ export class ProductDetailsController {
     AddToCart(item:IProduct)
     {
         this.cartSaveStatus=this.cartService.AddToCart(item);
+        if(this.cartSaveStatus)
+        {
+            alert("Item Added to Cart");
+        }
+        else
+        {
+            alert("Product already in Cart")
+        }
     }
 }

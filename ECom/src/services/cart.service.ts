@@ -4,7 +4,8 @@ import { IProduct } from "../interfaces/IProduct";
 import { } from "./catalog.service"
 import * as angular from "angular"
 
-export class CartService {
+export class CartService 
+{
 
     static $inject = ["$location"];
     count: number = 1;
@@ -30,7 +31,7 @@ export class CartService {
 
     AddToCart(item: IProduct) {
         // Get cart items from localStorage, default to an empty array if none exists
-        let sessionCart = localStorage.getItem("CartItems");
+        let sessionCart = this.getcartfromlocalstorage();
         let cart = sessionCart ? JSON.parse(sessionCart) : [];
     
         // Check if item already exists in the cart
@@ -53,10 +54,20 @@ export class CartService {
             cart.push(mycart);
     
             // Save the updated cart back to localStorage
-            localStorage.setItem("CartItems", JSON.stringify(cart));
-    
+            this.setcartinlocalstorage(cart)
+
             return true; // Successfully added the item to the cart
         }
+    }
+
+    setcartinlocalstorage(cart:ICartData[])
+    {
+        localStorage.setItem("CartItems", JSON.stringify(cart));
+    }
+
+    getcartfromlocalstorage()
+    {
+        return localStorage.getItem("CartItems");
     }
     
     
@@ -64,9 +75,14 @@ export class CartService {
         return price * qty;
     }
 
-    RemoveCartItem(item:ICartData)
+    RemoveCartItem(id: string) 
     {
-        
+        let sessioncart = this.getcartfromlocalstorage();;
+        let cart = sessioncart ? JSON.parse(sessioncart) : [];
+        // Find the index of the item to remove
+        const index = cart.findIndex((data) => data.cartId.toString() === id);
+        console.log(index);
+        cart.splice(index, 1);
+        this.setcartinlocalstorage(cart);
     }
-    
 }

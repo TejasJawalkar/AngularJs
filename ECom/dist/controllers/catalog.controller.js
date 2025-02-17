@@ -13,7 +13,6 @@ var catalogController = (function () {
             this.catalogServices.getCatalogData()
                 .then(function (products) {
                 _this.products = products;
-                _this.catalogServices.addproductinlocalstoare(_this.products);
             })
                 .catch(function (error) {
                 console.error('Error fetching product data:', error);

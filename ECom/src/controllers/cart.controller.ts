@@ -26,11 +26,17 @@ export class cartController{
         });
     }
 
+    getCartDatas()
+    {
+        this.cartData= this.CartService.getCartData();
+    }
+
 
     RemoveItemFromCart(item:ICartData)
     {
-        
-        this.getCartData();
+        this.TotalAmount-=item.TotalPrice;
+        this.CartService.RemoveCartItem(item.cartId.toString());
+        this.getCartDatas();
     }
 
 }

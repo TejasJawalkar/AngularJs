@@ -1,7 +1,6 @@
 var CatalogServices = (function () {
-    function CatalogServices($http, $window) {
+    function CatalogServices($http) {
         this.$http = $http;
-        this.$window = $window;
         this.service = "http://localhost:8000/";
     }
     CatalogServices.prototype.getCatalogData = function () {
@@ -11,10 +10,10 @@ var CatalogServices = (function () {
         });
     };
     CatalogServices.prototype.addproductinlocalstoare = function (product) {
-        this.$window.sessionStorage.setItem("ProductList", JSON.stringify([product]));
+        sessionStorage.setItem("ProductList", JSON.stringify(product));
     };
     CatalogServices.prototype.getproductlocalstorage = function () {
-        var productsList = this.$window.sessionStorage.getItem("ProductList");
+        var productsList = sessionStorage.getItem("ProductList");
         if (productsList) {
             var parsedData = JSON.parse(productsList);
             if (Array.isArray(parsedData) && Array.isArray(parsedData[0])) {
@@ -24,7 +23,14 @@ var CatalogServices = (function () {
         }
         return [];
     };
-    CatalogServices.$inject = ["$http", "$window"];
+    CatalogServices.prototype.getProductById = function (id) {
+        return this.$http.get(this.service + 'products/' + id)
+            .then(function (response) {
+            var resdata = response.data.data;
+            return resdata;
+        });
+    };
+    CatalogServices.$inject = ["$http"];
     return CatalogServices;
 }());
 

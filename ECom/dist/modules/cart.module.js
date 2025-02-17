@@ -1,5 +1,6 @@
 
 
 
-angular.module("CartModule", []).controller("CartController", cartController)
+angular.module("CartModule", [])
+    .controller("CartController", cartController)
     .service("CartService", CartService);

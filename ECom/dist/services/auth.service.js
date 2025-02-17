@@ -1,35 +1,41 @@
 var AuthServices = (function () {
-    function AuthServices($http, $window) {
+    function AuthServices($http) {
         this.$http = $http;
-        this.$window = $window;
         this.service = "http://localhost:8000/";
+        this.aStatus = false;
     }
     AuthServices.prototype.validate = function (User) {
         return this.$http.post(this.service + "login", User)
             .then(function (res) {
-            console.log(res);
             return res.data.success;
         }).catch(function (ex) {
             return false;
         });
     };
     AuthServices.prototype.setsessionforauth = function (user) {
-        debugger;
-        var userData = JSON.stringify(user);
-        this.$window.localStorage.setItem("AuthUser", userData);
+        sessionStorage.setItem("AuthUser", JSON.stringify(user));
     };
     AuthServices.prototype.checkisLogged = function () {
-        return this.$window.localStorage.getItem("AuthUser") !== null;
+        if (sessionStorage.getItem("AuthUser")) {
+            this.aStatus = true;
+        }
+        else {
+            this.aStatus = false;
+        }
+        return this.aStatus;
     };
     AuthServices.prototype.getsessionforauth = function () {
-        var userData = this.$window.localStorage.getItem("AuthUser");
+        var userData = sessionStorage.getItem("AuthUser");
         if (userData) {
             var parsedData = JSON.parse(userData);
             return parsedData;
         }
         return null;
     };
-    AuthServices.$inject = ["$http"];
+    AuthServices.prototype.removeSessions = function () {
+        sessionStorage.clear();
+    };
+    AuthServices.$inject = ["$http", "$location"];
     return AuthServices;
 }());
 

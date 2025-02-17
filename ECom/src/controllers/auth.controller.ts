@@ -9,7 +9,8 @@ interface ICustomScope extends IScope {
 export class authController {
     user: IUser;
     message: String = "Login";
-    status:Boolean=false;
+    status:Boolean;
+    data:string="Data";
 
     formAlign={
         "width": "25%",
@@ -31,8 +32,8 @@ export class authController {
 
     constructor(private $scope: ICustomScope,private $location:ILocationService,private AuthServices:AuthServices) 
     {
-        this.status=this.checkLogin()
-        if(this.status)
+        
+        if(this.checkLogin())
         {
             $location.url("/products")
         }
@@ -50,6 +51,9 @@ export class authController {
             {
                 this.AuthServices.setsessionforauth(user);
                 this.$location.url("/products")          
+            }
+            else{
+                this.status=false;
             }
         }).catch((ex)=>{
             this.status=false;

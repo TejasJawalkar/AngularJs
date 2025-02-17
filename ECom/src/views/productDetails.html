@@ -66,8 +66,11 @@
                             'btn-outline-primary':pdm.filterredProduct.availability==='In Stock',
                             'btn-outline-danger':pdm.filterredProduct.availability!=='In Stock'
                         }"
+
+                        ng-disabled="pdm.filterredProduct.availability!=='In Stock'"
                       
-                        ng-click="pdm.AddToCart(pdm.filterredProduct)">Add to Cart</button>
+                        ng-click="pdm.AddToCart(pdm.filterredProduct)"
+                        >Add to Cart</button>
                     </div>
                 </div>
             </div>
